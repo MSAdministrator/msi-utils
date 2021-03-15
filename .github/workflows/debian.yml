@@ -23,7 +23,7 @@ jobs:
     - name: Build Debian Package
       uses: dawidd6/action-debian-package@v1
       with:
-        source_directory: resource/debian
+        source_directory: resource
         artifacts_directory: msitools/data
     - name: Commit files
       run: |
