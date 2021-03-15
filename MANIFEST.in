@@ -1,0 +1,7 @@
+include msitools/0.97/bin/msibuild
+include msitools/0.97/bin/msidiff
+include msitools/0.97/bin/msidump
+include msitools/0.97/bin/msiextract
+include msitools/0.97/bin/msiinfo
+
+include LICENSE.md

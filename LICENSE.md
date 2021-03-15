@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2021 Josh Rickard
+Copyright (c) 2020 MSAdministrator
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

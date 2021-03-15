@@ -1,0 +1,38 @@
+name: Building msitools
+
+on:
+  push
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+        matrix:
+            os: [ubuntu-latest]
+            python-version: [3.6]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -U -r requirements.txt
+        pip install -U -r test-requirements.txt
+    - name: Build Debian Package
+      uses: dawidd6/action-debian-package@v1
+      with:
+        source_directory: resource/debian
+        artifacts_directory: msitools/data
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add "msitools/data/msibuild" "msitools/data/msidiff" "msitools/data/msidump" "msitools/data/msiextract" "msitools/data/msiinfo"
+        git commit -m "Adding debian msitools"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
