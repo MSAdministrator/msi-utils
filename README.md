@@ -20,6 +20,23 @@ You can also install from this repository by first cloning this repo and then ru
 python3 setup.py install
 ```
 
+## Using
+
+There are several different ways you can use the cmdline tool portion of `msi-utils`.  Here are the possible commands you can use:
+
+```
+msi-utils dump tables ~/my_file.msi 
+msi-utils dump streams ~/my_file.msi 
+msi-utils dump signature ~/my_file.msi 
+
+msi-utils extract msi ~/my_file.msi 
+msi-utils extract stream ~/my_file.msi "stream_name01"
+
+msi-utils get streams ~/my_file.msi
+msi-utils get tables ~/my_file.msi
+msi-utils get summary ~/my_file.msi
+```
+
 ## Built With
 
 * [carcass](https://github.com/MSAdministrator/carcass) - Python packaging template
